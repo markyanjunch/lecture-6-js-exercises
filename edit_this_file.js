@@ -13,8 +13,6 @@
  * Hint: Use template strings with variable substitutions 
  * @see https://www.w3schools.com/js/js_string_templates.asp
  */
-const wordToCheck = 'mousetrap';
-const apiUrl = ``;
 
 /**
  * Problem 3 
@@ -27,7 +25,6 @@ const apiUrl = ``;
  * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises
  * 
  */
-
 
 /**
  * Problem 4:
@@ -111,11 +108,10 @@ const updateResults = function (result) {
  * is checked
  */
 
+
 /**
  * Problem 10
  * In the two event listeners you've added, update them so
  * we get the value of dataMuseFunctionSelect and use that as
  * the third argument sent to callDataMuse();
  */
-
-
