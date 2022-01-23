@@ -12,7 +12,8 @@
 
  * Hint: Use template strings with variable substitutions 
  * @see https://www.w3schools.com/js/js_string_templates.asp
- */
+*/
+const apiUrl = ``;
 
 /**
  * Problem 3 
@@ -91,7 +92,8 @@ const updateResults = function (result) {
  * Add a click listener to dataMuseQueryButton
  * It should 
  *  - Create a variable `word` with the value typed into dataMuseWordInput
- *  - call the function `callDataMuse()`, arg1 is `word`, arg2 is `updateResults`
+ *  - call the function `callDataMuse()`, arg1 is `word`, arg2 is `updateResults` 
+ *    (callDataMuse) has a third optional arg that we will deal with later...
  *  - Make the border color of dataMuseResults blue
  */
 

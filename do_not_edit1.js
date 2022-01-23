@@ -29,10 +29,16 @@ function processProblem3(response) {
 }
 
 /**
+ * Calls the dataMuse API
  * 
- * @param {*} word 
+ * @param {string} word 
+ *   The word to check
  * @param {*} callback 
+ *   The callback that executes after a successful request
  * @param {*} queryParam 
+ *   The type of query made. Defaults to 'sl' (sounds like);
+ * 
+ * @see https://www.datamuse.com/api/
  */
  function callDataMuse(word, callback, queryParam = 'sl') {
   const url = `https://api.datamuse.com/words?${queryParam}=${word}`;

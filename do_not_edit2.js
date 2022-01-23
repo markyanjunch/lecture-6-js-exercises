@@ -73,9 +73,9 @@ setTimeout(() => {
 
 
 
-// /**
-//  * PROBLEM 7
-//  */
+/**
+  * PROBLEM 7
+  */
 const p7 = document.querySelector("#p7");
 
 document.querySelector('#datamuse-query').addEventListener('click', () => {
