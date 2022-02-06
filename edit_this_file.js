@@ -2,7 +2,7 @@
  * Use fetch() to get following URL https://api.datamuse.com/words?sl=classroom
  * console.log the results
  */
-
+console.log(fetch('https://api.datamuse.com/words?sl=classroom'));
 /**
  * Problem 2: Update the value of apiUrl so it begins with
  * `https://api.datamuse.com/words?sl=` and ends with THE VARIABLE `wordToCheck`,
@@ -14,8 +14,8 @@
  * @see https://www.w3schools.com/js/js_string_templates.asp
 */
 wordToCheck = 'mousetrap';
-const apiUrl = ``;
-
+const apiUrl = `https://api.datamuse.com/words?sl=${wordToCheck}`;
+console.log(apiUrl);
 /**
  * Problem 3 
  * 
@@ -27,7 +27,7 @@ const apiUrl = ``;
  * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises
  * 
  */
-
+fetch(apiUrl).then(processProblem3);
 /**
  * Problem 4:
  * 
@@ -38,7 +38,7 @@ const apiUrl = ``;
  * Hint: in https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises
  * Look for examples that have `.then(function(result)`
  */
-
+fetch(apiUrl).then((result)=>console.log(result));
 
 /**
 * Problem 5:
@@ -54,7 +54,7 @@ const apiUrl = ``;
 * Change it to
 *    console.log(result.json()) 
 */
-
+fetch(apiUrl).then((result)=>console.log(result.json()));
 /**
  * Problem 6:
  * 
@@ -72,7 +72,13 @@ const apiUrl = ``;
  * Hint @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises
  *   Look for `console.log('Got the final result: ' + finalResult);`
  */
-        
+ fetch(apiUrl)
+    .then(result => {
+        return result.json();
+    })
+    .then(finalResult => {
+        console.log(finalResult);
+    });
 /**
  * These variables are already created for you.
  * They are all the elements of the dataMuse UI we are building
@@ -98,20 +104,34 @@ const updateResults = function (result) {
  *    (callDataMuse) has a third optional arg that we will deal with later...
  *  - Make the border color of dataMuseResults blue
  */
-
+dataMuseQueryButton
+.addEventListener('click', function() {
+    const word = dataMuseWordInput.value;
+    callDataMuse(word, updateResults);
+    dataMuseResults.style['border-color']='blue';
+});
 /**
  * Problem 8
  * 
  * dataMuseQueryButton needs to be hidden if dataMuseRealTimeCheckbox is checked
  */
-
+dataMuseRealTimeCheckbox.addEventListener('change', (e) => {
+    // dataMuseQueryButton.hidden = e.target.checked;
+    dataMuseQueryButton.hidden = dataMuseRealTimeCheckbox.checked;
+});
 /**
  * Problem 9
  * Add a `keyup` listener to dataMuseWordInput that makes the same
  * callDataMuse request as Problem 7, but only if dataMuseQueryButton
  * is checked
  */
-
+dataMuseWordInput.addEventListener('keyup', (e) => {
+    if (dataMuseRealTimeCheckbox.checked) {
+        const word = dataMuseWordInput.value;
+        callDataMuse(word, updateResults);
+        dataMuseResults.style['border-color']='blue';
+    }
+});
 /**
  * Problem 10
  * In the two event listeners you've added, update them so
