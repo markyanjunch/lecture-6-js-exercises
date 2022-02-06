@@ -107,7 +107,7 @@ const updateResults = function (result) {
 dataMuseQueryButton
 .addEventListener('click', function() {
     const word = dataMuseWordInput.value;
-    callDataMuse(word, updateResults);
+    callDataMuse(word, updateResults, dataMuseFunctionSelect.value);
     dataMuseResults.style['border-color']='blue';
 });
 /**
@@ -128,8 +128,7 @@ dataMuseRealTimeCheckbox.addEventListener('change', (e) => {
 dataMuseWordInput.addEventListener('keyup', (e) => {
     if (dataMuseRealTimeCheckbox.checked) {
         const word = dataMuseWordInput.value;
-        callDataMuse(word, updateResults);
-        dataMuseResults.style['border-color']='blue';
+        callDataMuse(word, updateResults, dataMuseFunctionSelect.value);
     }
 });
 /**
